@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Local AI Starter Guide | ASAYA</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        .container { max-width: 600px; margin: 0 auto; padding: 60px 20px; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .badge {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        .subtitle { color: #888; font-size: 16px; margin-bottom: 30px; }
+        .form-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+        }
+        .form-box p { color: #aaa; font-size: 14px; margin-bottom: 20px; }
+        input[type="email"] {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .cta-button {
+            width: 100%;
+            display: block;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        .includes {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .includes h3 { font-size: 14px; color: #888; margin-bottom: 15px; }
+        .includes ul { list-style: none; }
+        .includes li {
+            padding: 8px 0;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .includes li:before { content: "âœ“"; color: #22c55e; margin-right: 8px; }
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">ðŸ“— FREE GUIDE</div>
+            <h1>Local AI Starter Guide</h1>
+            <p class="subtitle">Get AI running on your machine in under an hour. No cloud. No subscriptions.</p>
+        </div>
+
+        <div class="form-box">
+            <p>Enter your email. I'll send you the PDF immediately.</p>
+            <form action="https://formspree.io/f/xnqevjdr" method="POST">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <input type="hidden" name="_subject" value="AI Starter Guide Request">
+                <input type="hidden" name="_next" value="https://asayamedia.github.io/lead-magnet/thank-you.html">
+                <button type="submit" class="cta-button">Send Me The Free Guide</button>
+            </form>
+
+            <div class="includes">
+                <h3>What's Inside:</h3>
+                <ul>
+                    <li>Step-by-step Ollama installation</li>
+                    <li>First local LLM conversation in 5 minutes</li>
+                    <li>Hardware requirements checklist</li>
+                    <li>Common errors and fixes</li>
+                    <li>What to do next (advanced options)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>ASAYA Media & Design LLC Â· No spam. Unsubscribe anytime.</p>
+        </div>
+    </div>
+</body>
+</html>
