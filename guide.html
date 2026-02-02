@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local AI Starter Guide | ASAYA</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle { color: #888; font-size: 18px; margin-bottom: 30px; }
+        h2 {
+            font-size: 24px;
+            color: #fff;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+        h3 {
+            font-size: 18px;
+            color: #22c55e;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        p { margin-bottom: 15px; color: #ccc; }
+        ul { margin-left: 20px; margin-bottom: 15px; }
+        li { margin-bottom: 8px; color: #aaa; }
+        code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        pre {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 3px solid #22c55e;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+        }
+        .checklist {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .checklist li:before {
+            content: "âœ“ ";
+            color: #22c55e;
+            font-weight: bold;
+        }
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .warning:before {
+            content: "âš ï¸ ";
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            color: #22c55e;
+            font-weight: 600;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(22, 163, 74, 0.1));
+            border: 2px solid #22c55e;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        .cta-box h3 { margin-top: 0; color: #fff; }
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #666;
+            font-size: 14px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Local AI Starter Guide</h1>
+    <p class="subtitle">Get AI Running on Your Machine in Under an Hour</p>
+    
+    <p><strong>By ASAYA Media & Design LLC</strong></p>
+
+    <div class="checklist">
+        <h3>What You'll Have After This Guide</h3>
+        <ul>
+            <li>A chatbot running on your computer (no internet needed)</li>
+            <li>The ability to generate images locally</li>
+            <li>Complete privacyâ€”your data never leaves your machine</li>
+            <li>Zero ongoing costs</li>
+        </ul>
+        <p><strong>Time required:</strong> 45-60 minutes | <strong>Cost:</strong> $0</p>
+    </div>
+
+    <h2>Part 1: Check Your Hardware</h2>
+    
+    <h3>Minimum Requirements</h3>
+    <ul>
+        <li><strong>RAM:</strong> 8GB (16GB recommended)</li>
+        <li><strong>Storage:</strong> 20GB free space</li>
+        <li><strong>GPU:</strong> Optional but recommended (8GB+ VRAM)</li>
+        <li><strong>OS:</strong> Windows 10/11, macOS, or Linux</li>
+    </ul>
+
+    <h3>Quick Check (Windows)</h3>
+    <ol>
+        <li>Press <code>Win + R</code>, type <code>dxdiag</code>, press Enter</li>
+        <li>Look at "Display" tab for your GPU</li>
+        <li>If you see NVIDIA RTX 2060 or better, you're golden</li>
+        <li>If no discrete GPU, you can still run on CPU (slower)</li>
+    </ol>
+
+    <h2>Part 2: Install Ollama</h2>
+    
+    <h3>Step 1: Download</h3>
+    <p>Go to: <strong>https://ollama.com</strong></p>
+    <p>Click the download button for your OS.</p>
+
+    <h3>Step 2: Install</h3>
+    <ul>
+        <li><strong>Windows:</strong> Run the installer, click through</li>
+        <li><strong>Mac:</strong> Drag to Applications</li>
+        <li><strong>Linux:</strong> Open terminal, run:</li>
+    </ul>
+    <pre><code>curl -fsSL https://ollama.com/install.sh | sh</code></pre>
+
+    <h3>Step 3: Verify</h3>
+    <pre><code>ollama --version</code></pre>
+    <p>You should see a version number. If not, restart your computer.</p>
+
+    <h2>Part 3: Download Your First Model</h2>
+    
+    <div class="warning">
+        <strong>Model Size Guide:</strong><br>
+        3B-8B = Fast, good for most tasks<br>
+        13B-20B = Smarter, need 16GB+ RAM<br>
+        70B = GPT-4 level, need powerful GPU
+    </div>
+
+    <p>For your first model, use Llama 3.1 (8B):</p>
+    <pre><code>ollama pull llama3.1:8b</code></pre>
+    <p>This downloads ~5GB. Wait for completion.</p>
+
+    <h2>Part 4: Start Chatting</h2>
+    
+    <h3>Terminal Method (Quick Test)</h3>
+    <pre><code>ollama run llama3.1:8b</code></pre>
+    <p>Type: <code>Hello, are you running locally?</code></p>
+    <p>Type <code>/bye</code> to exit.</p>
+
+    <h3>Web Interface (Better)</h3>
+    <p>Requires Docker. Install from docker.com if needed.</p>
+    <pre><code>docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</code></pre>
+    <p>Open browser â†’ <code>http://localhost:3000</code></p>
+
+    <h2>Part 5: Generate Images</h2>
+    
+    <h3>Install ComfyUI</h3>
+    <ol>
+        <li>Download from github.com/comfyanonymous/ComfyUI</li>
+        <li>Extract to a folder</li>
+        <li>Run <code>run_nvidia_gpu.bat</code> (or <code>run_cpu.bat</code>)</li>
+        <li>Open <code>http://127.0.0.1:8188</code></li>
+    </ol>
+
+    <h3>Download Flux Model Files</h3>
+    <p>Place these in ComfyUI folders:</p>
+    <ul>
+        <li><code>flux1-schnell.safetensors</code> â†’ <code>models/unet/</code></li>
+        <li><code>t5xxl_fp8_e4m3fn.safetensors</code> â†’ <code>models/clip/</code></li>
+        <li><code>ae.safetensors</code> â†’ <code>models/vae/</code></li>
+    </ul>
+
+    <h2>Part 6: Essential Commands</h2>
+    
+    <table>
+        <tr><th>Command</th><th>What It Does</th></tr>
+        <tr><td><code>ollama list</code></td><td>See installed models</td></tr>
+        <tr><td><code>ollama pull name</code></td><td>Download a model</td></tr>
+        <tr><td><code>ollama run name</code></td><td>Chat with a model</td></tr>
+        <tr><td><code>ollama rm name</code></td><td>Delete a model</td></tr>
+    </table>
+
+    <h2>Part 7: Common Problems</h2>
+    
+    <h3>"CUDA out of memory"</h3>
+    <p><strong>Fix:</strong> Use smaller models (3B-7B) or run on CPU</p>
+
+    <h3>"Model not found"</h3>
+    <p><strong>Fix:</strong> Run <code>ollama pull modelname</code> first</p>
+
+    <h3>Slow responses</h3>
+    <p><strong>Fix:</strong> Close other apps, use smaller models, upgrade RAM</p>
+
+    <div class="cta-box">
+        <h3>Want the Full Setup Done For You?</h3>
+        <p>I install everything remotely in 2 hours. You watch and learn.</p>
+        <p><strong>$150 flat fee Â· 30-day support included</strong></p>
+        <p style="margin-top: 20px;">
+            <a href="https://asayamedia.github.io/local-ai-service/" style="color: #22c55e; font-weight: 700; font-size: 18px;">Book Setup Session â†’</a>
+        </p>
+    </div>
+
+    <div class="footer">
+        <p><strong>ASAYA Media & Design LLC</strong></p>
+        <p>admin@asaya.media</p>
+        <p style="margin-top: 10px;">More guides: https://asayamedia.github.io/blog/</p>
+    </div>
+</body>
+</html>
